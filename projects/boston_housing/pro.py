@@ -114,7 +114,7 @@ def fit_model(X, y):
     scoring_function = make_scorer(mean_absolute_error)
 
     # Make the GridSearchCV object
-    reg = GridSearchCV(regressor, parameters, scoring_function)
+    reg = GridSearchCV(regressor, parameters, scoring_function, verbose = 10)
 
     # Fit the learner to the data to obtain the optimal model with tuned parameters
     reg.fit(X, y)
