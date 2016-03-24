@@ -94,3 +94,38 @@ try:
     print "Successfully performed a metric calculation!"
 except:
     print "Something went wrong with performing a metric calculation."
+    
+    
+    
+# Put any import statements you need for this code block
+
+def fit_model(X, y):
+    """ Tunes a decision tree regressor model using GridSearchCV on the input data X 
+        and target labels y and returns this optimal model. """
+    from sklearn.metrics import mean_absolute_error, make_scorer
+    from sklearn.grid_search import GridSearchCV    
+    # Create a decision tree regressor object
+    regressor = DecisionTreeRegressor()
+
+    # Set up the parameters we wish to tune
+    parameters = {'max_depth':(1,2,3,4,5,6,7,8,9,10)}
+
+    # Make an appropriate scoring function
+    scoring_function = make_scorer(mean_absolute_error)
+
+    # Make the GridSearchCV object
+    reg = GridSearchCV(regressor, parameters, scoring_function)
+
+    # Fit the learner to the data to obtain the optimal model with tuned parameters
+    reg.fit(X, y)
+
+    # Return the optimal model
+    return reg.best_estimator_
+
+
+# Test fit_model on entire dataset
+try:
+    reg = fit_model(housing_features, housing_prices)
+    print "Successfully fit a model!"
+except:
+    print "Something went wrong with fitting a model."
