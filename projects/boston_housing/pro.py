@@ -77,3 +77,20 @@ try:
     print "Successfully shuffled and split the data!"
 except:
     print "Something went wrong with shuffling and splitting the data."
+    
+# Put any import statements you need for this code block here
+
+def performance_metric(y_true, y_predict):
+    """ Calculates and returns the total error between true and predicted values
+        based on a performance metric chosen by the student. """
+    from sklearn.metrics import mean_absolute_error
+    error = mean_absolute_error(y_true, y_predict)
+    return error
+  
+
+# Test performance_metric
+try:
+    total_error = performance_metric(y_train, y_train)
+    print "Successfully performed a metric calculation!"
+except:
+    print "Something went wrong with performing a metric calculation."
