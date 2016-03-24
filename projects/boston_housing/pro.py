@@ -56,7 +56,7 @@ def shuffle_split_data(X, y):
 
     # Shuffle and split the data  
     from sklearn import cross_validation   
-    rs = cross_validation.ShuffleSplit(X.shape[0], n_iter=1, test_size= 0.3)
+    rs = cross_validation.ShuffleSplit(X.shape[0], n_iter=1, test_size= 0.3, random_state=0)
     rs = list(rs)[0]
     train_index = rs[0]
     test_index = rs[1]
