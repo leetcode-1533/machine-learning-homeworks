@@ -111,7 +111,7 @@ def fit_model(X, y):
     parameters = {'max_depth':(1,2,3,4,5,6,7,8,9,10)}
 
     # Make an appropriate scoring function
-    scoring_function = make_scorer(mean_absolute_error)
+    scoring_function = make_scorer(mean_absolute_error, greater_is_better=false)
 
     # Make the GridSearchCV object
     reg = GridSearchCV(regressor, parameters, scoring_function, verbose = 10)
